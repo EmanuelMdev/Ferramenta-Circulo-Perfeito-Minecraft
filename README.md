@@ -11,50 +11,13 @@ Funciona com círculo só na borda (espessura ajustável) ou preenchido, e muda 
 
 ## Como usar
 
-Não precisa instalar nada. Abra o `index.html` no navegador.
+A ferramenta pode abrir como um mini aplicativo, numa janela sem barra de endereço nem abas.
 
-## Abrir numa janela própria (Windows)
+**Clicando:** dê dois cliques no `Minecircle.bat`.
 
-A ferramenta pode abrir como um mini aplicativo, numa janela sem barra de endereço nem abas. Funciona com o Edge (já vem no Windows) ou com o Chrome.
+### Aviso do Windows ao abrir
 
-**Clicando:** dê dois cliques no `abrir.bat`.
-
-**Pelo PowerShell**, dentro da pasta do projeto:
-
-```powershell
-.\abrir.ps1
-```
-
-**Atalho na Área de Trabalho** (rode uma vez e depois é só clicar no atalho):
-
-```powershell
-.\abrir.ps1 -CriarAtalho
-```
-
-**Direto da versão publicada no GitHub Pages**, de qualquer pasta, sem baixar nada:
-
-```powershell
-Start-Process msedge "--app=https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/ --window-size=1100,820"
-```
-
-Se preferir o Chrome, troque `msedge` por `chrome`. Para abrir o script com outro endereço ou outro tamanho: `.\abrir.ps1 -Url "https://..." -Largura 1000 -Altura 700`.
-
-## Publicar no GitHub Pages
-
-1. Crie um repositório no GitHub e envie estes arquivos.
-2. Vá em **Settings → Pages**.
-3. Em **Build and deployment**, escolha **Deploy from a branch**, selecione a branch `main` e a pasta `/ (root)`.
-4. Salve. Em alguns minutos o site fica em `https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/`.
-
-## Estrutura
-
-```
-index.html   página e estrutura
-style.css    estilos (tema claro e escuro)
-script.js    geração do círculo, molde em canvas, passo a passo e tabela
-abrir.ps1    abre a ferramenta numa janela própria (PowerShell)
-abrir.bat    o mesmo, com dois cliques
-```
+Se o Windows (SmartScreen) avisar que o arquivo é desconhecido, é porque ele veio da internet e não tem assinatura digital. Para tirar o aviso, clique com o botão direito no `.zip` baixado, vá em **Propriedades**, marque **Desbloquear** e só então extraia. Se já extraiu, rode na pasta: `Get-ChildItem -Recurse | Unblock-File`.
 
 ## Como o círculo é calculado
 
