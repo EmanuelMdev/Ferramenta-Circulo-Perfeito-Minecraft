@@ -13,7 +13,8 @@ Funciona com círculo só na borda (espessura ajustável) ou preenchido, e muda 
 
 A ferramenta pode abrir como um mini aplicativo, numa janela sem barra de endereço nem abas.
 
-**Clicando:** dê dois cliques no `Minecircle.bat`.
+**Clicando:** Dê dois cliques no `Minecircle.bat`.
+**Diretamente no navegador:** Abra o arquivo diretamente em seu navegador pessoal.
 
 ### Aviso do Windows ao abrir
 
