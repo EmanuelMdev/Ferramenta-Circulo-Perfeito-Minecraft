@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Círculos no Minecraft</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+<header>
+  <h1>Círculos no Minecraft</h1>
+  <p>Escolha o tamanho e siga o molde, quadrado por quadrado. Cada quadradinho da grade é 1 bloco. Veja o raio, quantos blocos usar e como montar linha por linha.</p>
+</header>
+
+<section class="card controls" aria-label="Configurações">
+  <div class="grp">
+    <label for="d">Diâmetro (blocos)</label>
+    <div class="step"><button id="dm" aria-label="Diminuir diâmetro">−</button><input id="d" type="number" min="1" max="200" value="20"><button id="dp" aria-label="Aumentar diâmetro">+</button></div>
+  </div>
+  <div class="grp">
+    <label for="r">Raio</label>
+    <input id="r" type="number" min="0.5" max="100" step="0.5" value="10">
+  </div>
+  <div class="grp">
+    <span class="lbl">Tipo</span>
+    <div class="seg" id="seg" role="group" aria-label="Tipo de círculo">
+      <button data-v="outline" class="on" aria-pressed="true">Só a borda</button>
+      <button data-v="filled" aria-pressed="false">Preenchido</button>
+    </div>
+  </div>
+  <div class="grp" id="tg">
+    <label for="t">Espessura da borda</label>
+    <input id="t" type="number" min="1" max="20" value="1">
+  </div>
+  <div class="grp" style="flex:1 1 220px">
+    <label for="dr">Tamanho rápido</label>
+    <input id="dr" type="range" min="1" max="100" value="20">
+  </div>
+</section>
+
+<section class="stats" aria-live="polite">
+  <div class="stat"><span>Raio</span><b id="sR">10</b><small id="sRs">do centro até a borda</small></div>
+  <div class="stat"><span>Diâmetro</span><b id="sD">20 × 20</b><small>blocos de lado</small></div>
+  <div class="stat"><span>Total de blocos</span><b id="sT">0</b><small id="sTs"></small></div>
+  <div class="stat"><span>Em packs de 64</span><b id="sP">0</b><small id="sPs"></small></div>
+</section>
+
+<section class="card">
+  <h2>Molde em escala 1 por 1</h2>
+  <p class="sub">Laranja = coloque um bloco. Os números nas bordas contam colunas e linhas. O verde marca o centro: um bloco quando o diâmetro é ímpar, quatro quando é par.</p>
+  <div class="tools">
+    <div class="z"><label for="zm">Zoom</label><input id="zm" type="range" min="6" max="44" value="18"><button id="za">Ajustar</button></div>
+    <div id="status">Passe o mouse ou o dedo sobre a grade.</div>
+  </div>
+  <div class="scroll" id="scroll"><canvas id="cv" aria-label="Molde do círculo, bloco por bloco"></canvas></div>
+  <div class="legend">
+    <span><i class="sw" style="background:var(--block)"></i>Bloco</span>
+    <span><i class="sw" style="background:var(--block-c)"></i>Bloco no centro</span>
+    <span><i class="sw" style="background:var(--cen)"></i>Centro vazio</span>
+    <span><i class="sw" style="background:var(--empty)"></i>Vazio</span>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Passo a passo, linha por linha</h2>
+  <p class="sub">Da esquerda para a direita, laranja é quantos blocos colocar e cinza é quantos espaços pular. Só a metade de cima aparece, porque a de baixo é o espelho. Toque numa linha para destacá-la no molde.</p>
+  <div class="rows" id="rows"></div>
+</section>
+
+<details class="card" id="ref">
+  <summary>Tabela de tamanhos (diâmetro 1 a 100)</summary>
+  <p class="sub" style="margin-top:8px">Raio e total de blocos de cada círculo. Toque numa linha para abrir o molde. A coluna da borda usa espessura 1.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Diâmetro</th><th>Raio</th><th>Só a borda</th><th>Preenchido</th></tr></thead>
+    <tbody id="tb"></tbody>
+  </table></div>
+</details>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
